@@ -139,12 +139,13 @@ html::-webkit-scrollbar-track {
 
 /* Футер */
 .footer {
-    position: relative;
+    position: sticky;
     margin-top: 50px;
     bottom: 0;
     left: 0;
     width: 100%;
     background-color: rgb(128, 128, 128);
+    z-index: 7;
 }
 
 .footer_container {
