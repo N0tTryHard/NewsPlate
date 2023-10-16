@@ -3,19 +3,17 @@
     src: url('public/yandex.woff') format('woff'); /
 }
 
-
 html::-webkit-scrollbar {
     width: 12px;
-    height: 12px; 
+    height: 12px;
 }
 
 html::-webkit-scrollbar-thumb {
-    background-color: #333; 
-    border-radius: 6px; 
-    border: 3px solid transparent; 
-    background-clip: content-box; 
+    background-color: #333;
+    border-radius: 6px;
+    border: 3px solid transparent;
+    background-clip: content-box;
 }
-
 
 
 html::-webkit-scrollbar-track {
@@ -26,6 +24,7 @@ html::-webkit-scrollbar-track {
 .main-content {
     position: relative;
     top: calc(5vh + 12px);
+    padding-bottom: 5vh;
 }
 
 /* Стили док-бара */
@@ -60,12 +59,12 @@ html::-webkit-scrollbar-track {
 }
 
 .dockButtonsContainer {
-    position: absolute; 
-    left: 50%; 
-    transform: translateX(-50%); 
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
-    justify-content: center; 
-    align-items: center; 
+    justify-content: center;
+    align-items: center;
 }
 
 /* Стили для выпадающего списка */
@@ -79,7 +78,7 @@ html::-webkit-scrollbar-track {
     position: absolute;
     background-color: #fff; /* Цвет фона выпадающего списка */
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
@@ -104,7 +103,7 @@ html::-webkit-scrollbar-track {
 .separator {
     background-color: #828282; /* Темно-серый цвет линии */
     height: 1px; /* Толщина линии */
-    width: 0%; /* Растягиваем на всю ширину */
+    width: 0; /* Растягиваем на всю ширину */
     position: fixed;
     left: 50%;
     opacity: 0.5;
@@ -133,7 +132,84 @@ html::-webkit-scrollbar-track {
 
 .test {
     height: 2000px;
-    weight: 300px;
-    /* background-color: green; */
+    width: 300px;
+    /*background-color: green;*/
 }
 
+
+/* Футер */
+.footer {
+    position: relative;
+    margin-top: 50px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(128, 128, 128);
+}
+
+.footer_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-icons {
+    display: flex;
+    justify-content: center;
+}
+
+.icon {
+    color: white;
+    font-size: 1.5vw;
+    margin: 0 1vw;
+}
+
+/* Mainsection */
+.main-section {
+    margin: 50px 0 50px;
+    position: relative;
+}
+
+.container_mainsection {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    background: linear-gradient(to bottom, #969494 40%, #dfdeda);
+}
+
+.text_mainsection {
+    flex: 1;
+}
+
+.photo_mainsection {
+    width: 400px;
+    padding-top: 21px;
+    padding-bottom: 10px;
+}
+
+.top_space {
+    padding-left: 100px;
+    padding-right: 90px;
+    display: flex;
+    justify-content: center;
+    gap: 6%;
+}
+
+.top_text_space {
+    vertical-align: middle;
+}
+
+.top_text {
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 492px;
+    font-family: roboto, serif;
+    color: #474747;
+    text-align: justify;
+    font-size: 21px;
+    text-indent: 40px;
+}

@@ -3,15 +3,16 @@ const app = express();
 const port = 3000;
 const err403 = "<title>Error: attempt to penetrate</title><h1>403 - Access denied</h1>"
 
+
 app.set('view engine', 'ejs');
 
 // --------- ОБРАБОТЧИК ЗАПРЕТОВ ----------
 app.use('/style.js', (req, res, next) => {
-  if (req.hostname === 'newsplate.lekasnet.repl.co') {
-    next(); 
-  } else {
-    res.status(403).send(err403);
-  }
+    if (req.hostname === 'newsplate.lekasnet.repl.co') {
+        next();
+    } else {
+        res.status(403).send(err403);
+    }
 });
 // app.use('/style.js', (req, res) => {
 //   res.status(403).send(err403);
@@ -35,19 +36,19 @@ app.use('/style.js', (req, res, next) => {
 
 // --------- ОБРАБОТЧИК ЗАПРОСОВ ----------
 app.get('/', (req, res) => {
-  res.render('index');
+    res.render('index');
 });
 
 app.get('/news', (req, res) => {
-  res.render('news');
+    res.render('news');
 });
 
 app.get('/halls', (req, res) => {
-  res.render('halls');
+    res.render('halls');
 });
 
 app.get('/contacts', (req, res) => {
-  res.render('contacts');
+    res.render('contacts');
 });
 
 // --------- ПОДКЛЮЧЕНИЕ СТАТИКОВ ----------
@@ -55,5 +56,5 @@ app.use(express.static('public'));
 
 // --------- ЗАПУСК СЕРВЕРА ----------
 app.listen(port, () => {
-  console.log(`Сервер запущен на порту ${port}`);
+    console.log(`Сервер запущен на порту ${port}`);
 });
