@@ -1,5 +1,16 @@
 <section class="news-section">
-    <% newsList.forEach(New => { %>
-        <p><%= New.title %></p>
-    <% }) %>
+    <div class="news-container">
+        <% newsList.forEach(function(news) { %>
+            <div class="news-item">
+                <h2 class="news-title"><%= news.title %></h2>
+                <p class="news-content"><%= news.text %></p>
+            </div>
+        <% }); %>
+    </div>
+
+    <% if (currentPage < totalPages) { %>
+        <a href="/news?page=<%= currentPage + 1 %>">Показать еще</a>
+    <% } %>
+
+    <a href="/news">В начало</a>
 </section>
