@@ -41,10 +41,6 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
-app.get('/news', (req, res) => {
-    res.render('news');
-});
-
 app.get('/halls', (req, res) => {
     res.render('halls');
 });
@@ -77,16 +73,15 @@ const newsSchema = new mongoose.Schema({
 
 const New = mongoose.model('New', newsSchema);
 
-app.get('/newssection', (req, res) => {
-    New.find({}, function (err, news) {
-        if (err) {
-            console.error('Ошибка при получении новостей из базы данных:', err);
-            return;
-        }
-        res.render('newssection', {
+app.get('/news', async (req, res) => {
+    try {
+        const news = await New.find();
+        res.render('news', {
             newsList: news
         });
-    });
+    } catch (err) {
+        console.error('Ошибка при получении новостей из базы данных:', err);
+    }
 });
 
 
