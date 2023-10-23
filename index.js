@@ -41,10 +41,6 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
-app.get('/news', (req, res) => {
-    res.render('news');
-});
-
 app.get('/halls', (req, res) => {
     res.render('halls');
 });
@@ -59,16 +55,19 @@ app.use(express.static('public'));
 
 
 // --------- ПОЛУЧЕНИЕ НОВОСТЕЙ ---------
-mongoose.connect('mongodb://127.0.0.1:27017', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
-    .then(() => {
+const connectToDatabase = async () => {
+    try {
+        await mongoose.connect('mongodb://127.0.0.1:27017', {
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+        });
         console.log('Соединение с MongoDB успешно установлено');
-    })
-    .catch((error) => {
+    } catch (error) {
         console.error('Ошибка при подключении к MongoDB:', error);
-    });
+    }
+};
+
+connectToDatabase();
 
 const newsSchema = new mongoose.Schema({
     title: String,
@@ -77,16 +76,15 @@ const newsSchema = new mongoose.Schema({
 
 const New = mongoose.model('New', newsSchema);
 
-app.get('/newssection', (req, res) => {
-    New.find({}, function (err, news) {
-        if (err) {
-            console.error('Ошибка при получении новостей из базы данных:', err);
-            return;
-        }
-        res.render('newssection', {
+app.get('/news', (req, res) => {
+    New.find({}).then(news => {
+        res.render('news', {
             newsList: news
         });
+    }).catch(error => {
+        console.error('Ошибка при получении новостей из базы данных:', error);
     });
+    
 });
 
 
