@@ -6,12 +6,26 @@
     <title>Музей "Шпионский токио"</title>
     <link rel="stylesheet" href="/index.css">
     <link rel="stylesheet" href="/mainsection.css">
+    <link rel="stylesheet" href="/news.css">
 </head>
 <body>
 <%- include('dockbar.ejs') %>
 <div class="main-content">
+
+    <form action="/news" method="POST">
+        <label for="title">Заголовок новости:</label>
+        <input type="text" id="title" name="title" placeholder="Заголовок новости" required>
+
+        <label for="text">Текст новости:</label>
+        <textarea id="text" name="text" placeholder="Текст новости" required></textarea>
+
+        <button type="submit">Добавить новость</button>
+    </form>
+
     <%- include('newssection.ejs') %>
 </div>
+
+
 <script src="/style.js"></script>
 </body>
 <%- include('footer.ejs') %>

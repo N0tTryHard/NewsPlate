@@ -1,0 +1,29 @@
+.news-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.news-item {
+    margin-bottom: 20px;
+    width: 65vw;
+}
+
+.news-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.news-content {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.fading-line {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #858585, transparent);
+    width: 100%;
+    margin: 20px 0;
+  }
+  

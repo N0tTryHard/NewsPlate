@@ -67,7 +67,7 @@ function handleClick() {
     const classes = target.classList[1];
     let toPage = idToPage[classes];
     
-    while (pageId != toPage) {
+    while (pageId !== toPage) {
         console.log(pageId, toPage);
         clearTimeout(timeoutId);
         changeClasses(10)

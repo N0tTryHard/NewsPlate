@@ -4,18 +4,20 @@ const port = 3000;
 const err403 = "<title>Error: attempt to penetrate</title><h1>403 - Access denied</h1>"
 
 const {mongoose} = require('mongoose')
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended: true}));
 
 
 app.set('view engine', 'ejs');
 
 // --------- ОБРАБОТЧИК ЗАПРЕТОВ ----------
-app.use('/style.js', (req, res, next) => {
-    if (req.hostname === 'newsplate.lekasnet.repl.co') {
-        next();
-    } else {
-        res.status(403).send(err403);
-    }
-});
+// app.use('/style.js', (req, res, next) => {
+//     if (req.hostname === 'newsplate.lekasnet.repl.co') {
+//         next();
+//     } else {
+//         res.status(403).send(err403);
+//     }
+// });
 // app.use('/style.js', (req, res) => {
 //   res.status(403).send(err403);
 // });
@@ -55,19 +57,16 @@ app.use(express.static('public'));
 
 
 // --------- ПОЛУЧЕНИЕ НОВОСТЕЙ ---------
-const connectToDatabase = async () => {
-    try {
-        await mongoose.connect('mongodb://127.0.0.1:27017', {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        });
+mongoose.connect('mongodb://u3l5xzneivjduw17jx4n:0lnek9BeJpFkFuIcIxK5@n1-c2-mongodb-clevercloud-customers.services.clever-cloud.com:27017,n2-c2-mongodb-clevercloud-customers.services.clever-cloud.com:27017/byaacby4zi4fkbe?replicaSet=rs0', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
+    .then(() => {
         console.log('Соединение с MongoDB успешно установлено');
-    } catch (error) {
+    })
+    .catch((error) => {
         console.error('Ошибка при подключении к MongoDB:', error);
-    }
-};
-
-connectToDatabase();
+    });
 
 const newsSchema = new mongoose.Schema({
     title: String,
@@ -76,17 +75,42 @@ const newsSchema = new mongoose.Schema({
 
 const New = mongoose.model('New', newsSchema);
 
-app.get('/news', (req, res) => {
-    New.find({}).then(news => {
+app.get('/news', async (req, res) => {
+    try {
+        const page = parseInt(req.query.page) || 1;
+        const limit = 5;
+        const skip = (page - 1) * limit;
+
+        const count = await New.countDocuments({});
+        const totalPages = Math.ceil(count / limit);
+
+        const news = await New.find()
+            .skip(skip)
+            .limit(limit);
+
         res.render('news', {
-            newsList: news
+            newsList: news,
+            totalPages: totalPages,
+            currentPage: page
         });
-    }).catch(error => {
-        console.error('Ошибка при получении новостей из базы данных:', error);
-    });
-    
+    } catch (err) {
+        console.error('Ошибка при получении новостей из базы данных:', err);
+    }
 });
 
+// --------- ДОБАВЛЕНИЕ НОВОСТЕЙ ---------
+app.post('/news', (req, res) => {
+    const {title, text} = req.body;
+
+    const newNews = new New({title, text});
+
+    newNews.save()
+        .then(() => {
+            console.log('Новость успешно добавлена в базу данных');
+            res.redirect('/news');
+        })
+        .catch(error => console.error('Ошибка при добавлении новости в базу данных:', error));
+});
 
 // --------- ЗАПУСК СЕРВЕРА ----------
 app.listen(port, () => {

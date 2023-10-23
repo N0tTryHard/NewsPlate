@@ -1,4 +1,5 @@
 const scrollLine = document.querySelector('.separator');
+const dockBar = document.querySelector('.dockMenu');
 
 // Функция для обновления стилей при прокрутке
 function updateStyles() {
@@ -6,9 +7,11 @@ function updateStyles() {
 
     // Рассчитываем, когда начинать отображать линию и изменять стили
     if (scrollTop > 0) {
-        scrollLine.classList.add('scrolled');
+        // scrollLine.classList.add('scrolled');
+        dockBar.classList.add('scrolled');
     } else {
-        scrollLine.classList.remove('scrolled');
+        // scrollLine.classList.remove('scrolled');
+        dockBar.classList.remove('scrolled');
     }
 }
 
