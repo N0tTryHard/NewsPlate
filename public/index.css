@@ -29,6 +29,8 @@ html::-webkit-scrollbar-track {
     padding-bottom: 5vh;
 }
 
+
+
 /* Стили док-бара */
 .dockMenu {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -145,9 +147,8 @@ html::-webkit-scrollbar-track {
 
 /* Футер */
 .footer {
-    position: relative;
+    position: sticky;
     margin-top: 50px;
-    margin: 0;
     bottom: 0;
     left: 0;
     right: 0;

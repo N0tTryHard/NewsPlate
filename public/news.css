@@ -27,3 +27,34 @@
     margin: 20px 0;
   }
   
+
+  .content {
+    z-index: 2;
+    background-color: #f0f0f0; /* just for visualization */
+    padding: 20px;
+    border: 1px solid black;
+}
+
+.image-container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 150px; /* Adjust width as needed */
+    overflow: hidden;
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    right: 0;
+}
+
+img {
+    width: 100%;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    transition: bottom 0.02s linear; /* Adjust speed by modifying the transition time */
+}
