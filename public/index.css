@@ -4,7 +4,6 @@
 }
 
 
-
 html::-webkit-scrollbar {
     width: 12px;
     height: 12px;
@@ -23,12 +22,12 @@ html::-webkit-scrollbar-track {
     border-radius: 6px; /* Закругленные края трека */
 }
 
+
 .main-content {
     position: relative;
     top: calc(5vh + 12px);
     padding-bottom: 5vh;
 }
-
 
 
 /* Стили док-бара */
@@ -147,8 +146,7 @@ html::-webkit-scrollbar-track {
 
 /* Футер */
 .footer {
-    position: sticky;
-    margin-top: 50px;
+    position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
@@ -161,10 +159,6 @@ html::-webkit-scrollbar-track {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* max-width: 1200px; */
-    left: 0;
-    right: 0;
-    margin: 0 auto;
     padding: 20px;
     text-align: center;
 }
