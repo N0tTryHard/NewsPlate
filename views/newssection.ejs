@@ -10,8 +10,8 @@
     </div>
 
     <% if (currentPage < totalPages) { %>
-        <a href="/news?page=<%= currentPage + 1 %>">Показать еще</a>
+        <a href="/news?page=<%= currentPage + 1 %>" class="news_link">Показать еще</a>
     <% } %>
 
-    <a href="/news">В начало</a>
+    <a href="/news" class="news_link">В начало</a>
 </section>

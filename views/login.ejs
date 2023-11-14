@@ -10,7 +10,16 @@
 <body>
 <%- include('dockbar.ejs') %>
 <div class="main-content">
-    <div class="test"></div>
+    <h1>Вход</h1>
+    <form action="/login" method="POST">
+        <label for="login">Логин:</label>
+        <input type="text" id="login" name="login" required>
+        <br>
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <input type="submit" value="Войти">
+    </form>
 </div>
 <script src="/style.js"></script>
 </body>
