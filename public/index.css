@@ -52,7 +52,7 @@ html::-webkit-scrollbar-track {
 }
 
 .dockMenu.scrolled {
-    box-shadow: 0px 0px 3px black;
+    box-shadow: 0 0 3px black;
 }
 
 /* Стили для кнопок */
@@ -193,8 +193,9 @@ html::-webkit-scrollbar-track {
 
 .photo_mainsection {
     width: 400px;
-    padding-top: 21px;
-    padding-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: solid #474747;
 }
 
 .top_space {
@@ -218,4 +219,30 @@ html::-webkit-scrollbar-track {
     text-align: justify;
     font-size: 21px;
     text-indent: 40px;
+}
+
+
+/* Контакты */
+.contacts_space {
+    display: flex;
+    gap: 100px;
+    margin-top: 100px;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.bibliograph {
+    width: 50vw;
+    font-size: 1.2em;
+    color: #474747;
+    list-style: inside;
+}
+
+.bib {
+    text-align: center
+}
+
+.author {
+    width: 20vw;
+    border: solid #474747;
 }
