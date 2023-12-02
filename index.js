@@ -7,7 +7,6 @@ const err403 = "<title>Error: attempt to penetrate</title><h1>403 - Access denie
 
 const {mongoose} = require('mongoose')
 const bodyParser = require('body-parser');
-const bcrypt = require("bcrypt");
 app.use(bodyParser.urlencoded({extended: true}));
 mongoose.connect('mongodb://u3l5xzneivjduw17jx4n:0lnek9BeJpFkFuIcIxK5@n1-c2-mongodb-clevercloud-customers.services.clever-cloud.com:27017,n2-c2-mongodb-clevercloud-customers.services.clever-cloud.com:27017/byaacby4zi4fkbe?replicaSet=rs0', {
     useNewUrlParser: true, useUnifiedTopology: true
@@ -103,8 +102,8 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
-app.get('/halls', (req, res) => {
-    res.render('halls');
+app.get('/hall1', (req, res) => {
+    res.render('hall1');
 });
 
 app.get('/contacts', (req, res) => {
