@@ -19,32 +19,6 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
-router.use(function(req, res, next) {
-    res.status(404).send("<h1>Error 404: Страница не найдена</h1>");
-});
-
-// Обработчик ошибки 500 (внутренняя ошибка сервера)
-router.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).send("<h1>Error 500: Внутренняя ошибка сервера</h1>\n" +
-        "<div style='opacity: 0.3'>Не волнуйтесь, это не ваша ошибка, вскоре мы исправим проблему</div>");
-});
-
-// Обработчик ошибки 403 (доступ запрещен)
-router.use((req, res, next) => {
-    res.status(403).send("<h1>Error 403: Доступ запрещён</h1>");
-});
-
-// Обработчик ошибки 400 (неверный запрос)
-router.use((req, res, next) => {
-    res.status(400).send("<h1>Error 400: Не верный запрос</h1>");
-});
-
-// Обработчик ошибки 401 (неавторизован)
-router.use((req, res, next) => {
-    res.status(401).render('error', { message: 'Неавторизован' });
-});
-
 router.post('/login', async (req, res) => {
     const {username, password} = req.body;
 
@@ -118,6 +92,32 @@ router.post('/news/delete/:id', async (req, res) => {
     } catch (err) {
         console.error('Ошибка при удалении новости из базы данных:', err);
     }
+});
+
+router.use(function (req, res, next) {
+    res.status(404).send("<h1>Error 404: Страница не найдена</h1>");
+});
+
+// Обработчик ошибки 500 (внутренняя ошибка сервера)
+router.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send("<h1>Error 500: Внутренняя ошибка сервера</h1>\n" +
+        "<div style='opacity: 0.3'>Не волнуйтесь, это не ваша ошибка, вскоре мы исправим проблему</div>");
+});
+
+// Обработчик ошибки 403 (доступ запрещен)
+router.use((req, res, next) => {
+    res.status(403).send("<h1>Error 403: Доступ запрещён</h1>");
+});
+
+// Обработчик ошибки 400 (неверный запрос)
+router.use((req, res, next) => {
+    res.status(400).send("<h1>Error 400: Не верный запрос</h1>");
+});
+
+// Обработчик ошибки 401 (неавторизован)
+router.use((req, res, next) => {
+    res.status(401).render('error', {message: 'Неавторизован'});
 });
 
 module.exports = router;

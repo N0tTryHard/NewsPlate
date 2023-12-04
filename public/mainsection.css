@@ -1,8 +1,0 @@
-.mainsection {
-    position: relative;
-    height: 200px;
-    width: calc(100% - 20px);
-    margin: 0 auto auto;
-    background-color: #adadad;
-    border: solid 1px #454545;
-}
