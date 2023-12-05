@@ -20,6 +20,19 @@ window.addEventListener('load', updateStyles);
 window.addEventListener('scroll', updateStyles);
 
 
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('.menuToggle').addEventListener('click', function() {
+        const buttonsContainer = document.querySelector('.dropdownMenu');
+        if (buttonsContainer.style.display === 'flex') {
+            buttonsContainer.style.display = 'none';
+        } else {
+            buttonsContainer.style.display = 'flex';
+        }
+    });
+});
+
+
+
 // document.addEventListener("DOMContentLoaded", function() {
 //     const imageContainerLeft = document.getElementById('imageContainerLeft');
 //     const imageContainerRight = document.getElementById('imageContainerRight');
