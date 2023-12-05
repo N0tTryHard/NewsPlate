@@ -1,8 +1,7 @@
 @font-face {
     font-family: 'Yandex';
-    src: url('public/yandex.woff') format('woff'); /
+    src: url('public/yandex.woff') format('woff');
 }
-
 
 html::-webkit-scrollbar {
     width: 12px;
@@ -16,12 +15,10 @@ html::-webkit-scrollbar-thumb {
     background-clip: content-box;
 }
 
-
 html::-webkit-scrollbar-track {
-    background-color: #f1f1f1; /* Цвет трека скроллера */
-    border-radius: 6px; /* Закругленные края трека */
+    background-color: #f1f1f1;
+    border-radius: 6px;
 }
-
 
 .main-content {
     position: relative;
@@ -29,13 +26,11 @@ html::-webkit-scrollbar-track {
     padding-bottom: 5vh;
 }
 
-
-/* Стили док-бара */
 .dockMenu {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     height: 5vh;
     margin: 0;
-    background-color: #fff; /* Белый цвет фона док-бара */
+    background-color: #fff;
     padding: 10px 0;
     text-align: center;
     position: fixed;
@@ -44,22 +39,20 @@ html::-webkit-scrollbar-track {
     top: 0;
     z-index: 1000;
     display: flex;
-    align-items: center; /* Центрируем содержимое по вертикали */
-    transition: background-color 0.3s; /* Плавное изменение фона */
-    color: #333; /* Темно-серый цвет текста */
+    align-items: center;
+    transition: background-color 0.3s;
+    color: #333;
     font-weight: bold;
-    transition: all 0.8s;
 }
 
 .dockMenu.scrolled {
     box-shadow: 0 0 3px black;
 }
 
-/* Стили для кнопок */
 .dockButton {
-    margin-left: 20px; /* Отступ между кнопками */
+    margin-left: 20px;
     text-decoration: none;
-    color: #333; /* Цвет текста */
+    color: #333;
     font-weight: bold;
     font-size: 1.2em;
     text-transform: uppercase;
@@ -75,7 +68,6 @@ html::-webkit-scrollbar-track {
     align-items: center;
 }
 
-/* Стили для выпадающего списка */
 .dropdown {
     position: relative;
     display: inline-block;
@@ -84,7 +76,7 @@ html::-webkit-scrollbar-track {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #fff; /* Цвет фона выпадающего списка */
+    background-color: #fff;
     min-width: 160px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     z-index: 1;
@@ -101,30 +93,26 @@ html::-webkit-scrollbar-track {
     background-color: #f1f1f1;
 }
 
-/* При наведении на родительскую кнопку, показываем выпадающий список */
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
-
-/* Горизонтальная линия */
 .separator {
-    background-color: #828282; /* Темно-серый цвет линии */
-    height: 1px; /* Толщина линии */
-    width: 0; /* Растягиваем на всю ширину */
+    background-color: #828282;
+    height: 1px;
+    width: 0;
     position: fixed;
     left: 50%;
     opacity: 0.5;
-    top: calc(5vh + 20px); /* Располагаем под док-баром */
-    z-index: 1001; /* Поверх остальных элементов */
-    transition: all 1s; /* Добавляем анимацию изменения ширины и цвета фона */
+    top: calc(5vh + 20px);
+    z-index: 1001;
+    transition: all 1s;
 }
 
-/* Стили для док-бара при прокрутке */
 .separator.scrolled {
     width: calc(100% - 40px);
     left: 20px;
-    background-color: #333; /* Темно-серый цвет фона при прокрутке */
+    background-color: #333;
 }
 
 .dockName {
@@ -132,7 +120,7 @@ html::-webkit-scrollbar-track {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 700;
     font-size: 1.2em;
-    color: black; /* Белый цвет текста */
+    color: black;
     text-transform: uppercase;
     letter-spacing: 2px;
     text-decoration: none;
@@ -141,10 +129,8 @@ html::-webkit-scrollbar-track {
 .test {
     height: 2000px;
     width: 300px;
-    /*background-color: green;*/
 }
 
-/* Футер */
 .footer {
     position: fixed;
     bottom: 0;
@@ -174,7 +160,6 @@ html::-webkit-scrollbar-track {
     margin: 0 1vw;
 }
 
-/* Mainsection */
 .main-section {
     margin: 50px 0 50px;
     position: relative;
@@ -221,8 +206,6 @@ html::-webkit-scrollbar-track {
     text-indent: 40px;
 }
 
-
-/* Контакты */
 .contacts_space {
     display: flex;
     gap: 100px;
@@ -245,4 +228,73 @@ html::-webkit-scrollbar-track {
 .author {
     width: 20vw;
     border: solid #474747;
+}
+
+
+/* Для экранов шириной меньше 768px */
+@media (max-width: 767px) {
+    .top_space {
+        flex-direction: column;
+    }
+
+    .top_text_space {
+        text-align: center;
+    }
+
+    .photo_mainsection {
+        width: 100%;
+    }
+
+    .top_text {
+        height: auto;
+        padding: 10px;
+    }
+
+    .contacts_space {
+        flex-direction: column;
+    }
+
+    .bibliograph {
+        width: 100%;
+    }
+
+    .author {
+        width: 100%;
+    }
+}
+
+/* Для экранов шириной от 768px до 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .top_space {
+        flex-direction: column;
+    }
+
+    .top_text_space {
+        text-align: center;
+    }
+
+    .photo_mainsection {
+        width: 100%;
+    }
+
+    .top_text {
+        height: auto;
+        padding: 10px;
+    }
+
+    .contacts_space {
+        flex-direction: column;
+    }
+
+    .bibliograph {
+        width: 100%;
+    }
+
+    .author {
+        width: 100%;
+    }
+}
+
+/* Для экранов шириной от 1024px и больше */
+@media (min-width: 1024px) {
 }
