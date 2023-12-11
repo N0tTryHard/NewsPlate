@@ -31,6 +31,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+window.addEventListener('resize', function() {
+    var dropdownMenu = document.querySelector('.dropdownMenu');
+    if (window.innerWidth > 800) {
+        dropdownMenu.style.display = 'none';
+    }
+});
+
 
 
 // document.addEventListener("DOMContentLoaded", function() {
